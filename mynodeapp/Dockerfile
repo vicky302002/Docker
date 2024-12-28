@@ -1,11 +1,11 @@
-# Stage 1: Build
+# For Build
 FROM node AS build
 WORKDIR /usr/src/app
 COPY package.json .
 COPY . .
 RUN npm install
 
-# Stage 2: Production
+# For Production
 FROM node AS production
 WORKDIR /usr/src/app
 COPY --from=build /usr/src/app/ ./dist
